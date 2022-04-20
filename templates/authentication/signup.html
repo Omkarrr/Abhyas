@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SignUp</title>
+</head>
+<body>
+    <h1>Welcome to Abhyas</h1>
+    <form action="/signup" method="post">
+    {% csrf_token %}
+        <label for="">Username</label>
+        <input type="text" name="username" id="username" placeholder="Create a username (only letters and numbers)" Required>
+        <br>
+        <label for="">First name</label>
+        <input type="text" name="fname" id="fname" placeholder="Enter your First Name" Required>
+        <br>
+        <label for="">Last name</label>
+        <input type="text" name="lname" id="lname" placeholder="Enter your Last Name" Required>
+        <br>
+        <label for="">Emai Address</label>
+        <input type="email" name="email" id="email" placeholder="Enter Your Email Address" Required>
+        <br>
+        <label for="">Password</label>
+        <input type="password" name="pass1" id="pass1" placeholder="Create a password" Required>
+        <br>
+        <label for="">Confirm your password</label>
+        <input type="password" name="pass2" id="pass2" placeholder="Create your password" Required>
+        <br>
+        <button type="submit">SignUp</button>
+    </form>
+</body>
+</html> 

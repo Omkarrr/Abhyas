@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="std12.css" />
+    <title>Abhyas</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
+
+:root {
+  --header-height: 3rem;
+
+  --first-color: #E34234;
+  --first-color-alt: #c42130;
+  --first-color-send: #de3b49;
+  --title-color: #161212;
+  --text-color: #5b5757;
+  --text-color-light: #8f8a8a;
+  --body-color:  #fefbfb;
+  --container-color: white;
+
+  --body-font: "Poppins", sans-serif;
+  --biggest-font-size: 2rem;
+  --h2-font-size: 1.25rem;
+  --h3-font-size: 1.125rem;
+  --normal-font-size: 0.938rem;
+  --small-font-size: 0.813rem;
+
+  --font-semi-bold: 600;
+  --font-bold: 700;
+
+  --mb-1: 0.5rem;
+  --mb-2: 1rem;
+  --mb-3: 1.5rem;
+  --mb-4: 2rem;
+  --mb-5: 2.5rem;
+  --mb-6: 3rem;
+
+  --z-tooltip: 10;
+  --z-fixed: 100;
+}
+@media screen and (min-width: 968px) {
+  :root {
+    --biggest-font-size: 3rem;
+    --h2-font-size: 1.75rem;
+    --h3-font-size: 1.125rem;
+    --normal-font-size: 1rem;
+    --small-font-size: 0.813rem;
+  }
+}
+
+::before,
+::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body.dark-theme {
+  --first-color-send: violet;
+  --title-color: #f3f1f1;
+  --text-color: #d1c7c8;
+  --body-color: #251d1e;
+  --container-color: #302728;
+}
+
+.change-theme {
+  position: absolute;
+  right: 1.5rem;
+  top: 2.2rem;
+  display: flex;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+body {
+  margin: var(--header-height) 0 0 0;
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+  background-color: var(--body-color);
+  color: var(--text-color);
+  line-height: 1.6;
+}
+h1,
+h2,
+h3,
+ul,
+p {
+  margin: 0;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: var(--font-semi-bold);
+  color: var(--title-color);
+}
+
+ul {
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.section {
+  padding: 4rem 0 2rem;
+}
+
+.section-title,
+.section-title-center {
+  font-size: var(--h2-font-size);
+  color:black;
+  text-align: center;
+  margin-bottom: var(--mb-3);
+}
+
+.l-main {
+  overflow: hidden;
+}
+
+.bd-container {
+  max-width: 968px;
+  width: calc(100% - 3rem);
+  margin-left: var(--mb-3);
+  margin-right: var(--mb-3);
+}
+.bd-grid {
+  display: grid;
+  gap: 1.5rem;
+}
+.l-header {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: var(--z-fixed);
+  background-color: var(--body-color);
+}
+
+.nav {
+  height: var(--header-height);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@media screen and (max-width: 768px) {
+  .nav_menu {
+    position: fixed;
+    top: -100%;
+    left: 0;
+    right: 0;
+    width: 90%;
+    margin: 0 auto;
+    padding: 2.5rem 0 0;
+    text-align: center;
+    background-color: var(--body-color);
+    transition: 0.4s;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
+    border-radius: 2rem;
+    z-index: var(--z-fixed);
+  }
+}
+
+.nav_item {
+  margin-bottom: var(--mb-3);
+}
+
+.nav_link,
+.nav_logo,
+.nav_toggle {
+  color: var(--title-color);
+  font-weight: var(--font-semi-bold);
+}
+
+.nav_logo:hover {
+  color: var(--first-color);
+}
+
+.nav_link {
+  transition: 0.3s;
+}
+
+.nav_link:hover {
+  color: var(--first-color);
+}
+
+.nav_toggle {
+  font-size: 1.3rem;
+  cursor: pointer;
+}
+
+.show-menu {
+  top: calc(var(--header-height) + 1rem);
+}
+
+.active-link {
+  position: relative;
+}
+.active-link::before {
+  content: "";
+  position: absolute;
+  bottom: -0.75rem;
+  left: 45%;
+  width: 5px;
+  height: 5px;
+  background-color: var(--title-color);
+  border-radius: 50%;
+}
+
+.scroll-header {
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+.scrolltop {
+  position: fixed;
+  right: 1rem;
+  bottom: -20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.3rem;
+  background: rgba(218, 37, 53, 0.5);
+  border-radius: 0.4rem;
+  z-index: var(--z-tooltip);
+  transition: 0.4s;
+  visibility: hidden;
+}
+
+.scrolltop:hover {
+  background-color: var(--first-color);
+}
+
+.scrolltop_icon {
+  font-size: 1.5rem;
+  color: var(--body-color);
+}
+
+.show-scroll {
+  visibility: visible;
+  bottom: 1.5rem;
+}
+
+.home_container {
+  row-gap: 0.5rem;
+}
+.home_img {
+  width: 280px;
+  justify-self: center;
+}
+.home_title {
+  font-size: var(--biggest-font-size);
+  font-weight: var(--font-bold);
+  margin-bottom: var(--mb-2);
+}
+
+.home_description {
+  margin-bottom: var(--mb-3);
+}
+
+.fas {
+  display: inline-block;
+  background-color: var(--first-color);
+  color: whitesmoke;
+  padding: 1rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: var(--font-semi-bold);
+  transition: 0.3s;
+}
+
+.fas:hover {
+  background-color: var(--first-color-alt);
+}
+.fas-link {
+  background: none;
+  padding: 0;
+  color: var(--first-color);
+}
+.fas-link:hover {
+  background-color: transparent;
+  color: var(--first-color-alt);
+}
+
+.decoration_container {
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+}
+
+.decoration_data {
+  text-align: center;
+  padding: 1rem 1rem 2rem;
+  background-color: var(--container-color);
+  box-shadow: 0 6px 6px rgba(65, 11, 16, 0.15);
+  border-radius: 1rem;
+}
+
+.decoration_data:hover {
+  box-shadow: 0 10px 12px rgba(65, 11, 16, 0.15);
+}
+
+.decoration_img {
+  width: 1080px;
+}
+
+.decoration_title {
+  font-size: var(--h3-font-size);
+  margin-bottom: var(--mb-1);
+}
+
+.share_data {
+  text-align: center;
+}
+.share_description {
+  margin-bottom: var(--mb-2);
+}
+.share_img {
+  width: 280px;
+  justify-self: center;
+}
+
+.send {
+  background-color: var(--body-color);
+}
+
+.send_title,
+.send_description {
+  color: #fff;
+}
+.send_description {
+  text-align: center;
+  margin-bottom: var(--mb-4);
+}
+.send_direction {
+  display: flex;
+  background-color: #fff;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+}
+.send_input {
+  width: 90%;
+  outline: none;
+  border: none;
+  font-size: var(--large-font-size);
+  font-family: var(--body-font);
+}
+
+.send_input::placeholder {
+  font-family: var(--body-font);
+}
+.send_img {
+  width: 180px;
+  justify-self: center;
+  
+}
+
+.send_img img {
+ border-radius: 15px;
+  
+}
+
+
+
+.footer_container {
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  
+}
+.footer_logo {
+  color: var(--title-color);
+}
+
+.footer_title {
+  margin-bottom: var(--mb-2);
+}
+.footer_logo,
+.footer_title {
+  font-size: var(--h3-font-size);
+}
+
+.footer_link {
+  display: inline-block;
+  margin-bottom: 0.75rem;
+  color: var(--text-color);
+}
+.footer_link:hover {
+  color: var(--first-color);
+}
+
+.footer_social {
+  font-size: 1.5rem;
+  color: var(--title-color);
+  margin-right: var(--mb-3);
+}
+.footer_social:hover {
+  color: var(--first-color);
+}
+.footer_copy {
+  text-align: center;
+  font-size: var(--small-font-size);
+  color: var(--text-color-light);
+  margin-top: 4rem;
+}
+
+@media screen and (max-width: 359px) {
+  .home_img,
+  .share_img,
+  .send_img {
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 576px) {
+  .home_container,
+  .share_container,
+  .send_container {
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+  }
+  .home_container {
+    padding: 5rem 0 0;
+  }
+  .home_img {
+    order: 1;
+  }
+  .section-title-center,
+  .share_data,
+  .send_description {
+    text-align: initial;
+  }
+  .home_img,
+  .share_img,
+  .send_img {
+    width: 100%;
+  }
+  .share_img {
+    order: -1;
+  }
+}
+@media screen and (min-width: 768px) {
+  body {
+    margin: 0;
+  }
+  .section {
+    padding-top: 7rem;
+  }
+
+  .nav {
+    height: calc(var(--header-height) + 1.5rem);
+  }
+  .nav_list {
+    display: flex;
+    align-items: center;
+  }
+  .nav_item {
+    margin-left: var(--mb-5);
+    margin-bottom: 0;
+  }
+  .nav_toggle {
+    display: none;
+  }
+  .change-theme {
+    position: initial;
+    margin-left: var(--mb-4);
+  }
+  .home_container {
+    padding: 7rem 2rem 0;
+  }
+  .share_container {
+    padding: 0 2rem;
+  }
+  .send {
+    background: none;
+  }
+  .send_container {
+    background: var(--first-color-send);
+    padding: 2rem;
+    border-radius: 1.5rem;
+  }
+}
+@media screen and (min-width: 968px) {
+  .bd-container {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .home_img,
+  .share_img,
+  .send_img {
+    width: 469px;
+  }
+  .home_container,
+  .share_container,
+  .send_container {
+    column-gap: 5rem;
+  }
+}
+
+    </style>
+  </head>
+  <body>
+    <a href="#" class="scrolltop" id="scroll-top">
+      <i class="bx bx-up-arrow-alt scrolltop_icon"></i>
+    </a>
+
+    <header class="l-header" id="header">
+      <nav class="nav bd-container">
+        <a href="/" class="nav_logo">Abhyas</a>
+
+        <div class="nav_menu" id="nav-menu">
+          <ul class="nav_list">
+            <li class="nav_item">
+              <a href="/" class="nav_link">Home</a>
+            </li>
+            <li class="nav_item">
+              <a href="#explore" class="nav_link">Courses</a>
+            </li>
+            <li class="nav_item">
+              <a href="#contribute" class="nav_link">Contribute</a>
+            </li>
+            <li class="nav_item">
+              <a href="/signin" class="nav_link">Login</a>
+            </li>
+            <li class="nav_item">
+              <a href="/aboutus" class="nav_link">About us</a>
+            </li>
+
+          </ul>
+        </div>
+
+        <div class="nav_toggle" id="nav-toggle">
+          <i class="bx bx-grid-alt"></i>
+        </div>
+      </nav>
+    </header>
+    
+
+      <section class="decoration section bd-container" id="explore">
+        <h2 class="section-title"> Std 12<br>
+                                  Subjects</h2>
+
+                                  <div class="decoration_container bd-grid">
+                                    <div class="decoration_data">
+                                      <img
+                                        src="https://images.hindustantimes.com/rf/image_size_444x250/HT/p2/2020/04/15/Pictures/_a6aa061c-7f1c-11ea-aedf-4d2519fcedc3.jpg"
+                                      />
+                                      <h3 class="decoration_title">Mathemtics</h3>
+                                      <a href="https://youtube.com/playlist?list=PLKKfKV1b9e8qRtBEpJNyt8jy4OZ4sWYy_" class="fas fa-arrow-right fa-3x"> View  </a>
+                                    </div>
+                                    <div class="decoration_data">
+                                      <img src="https://jobs.newscientist.com/getasset/c40a5488-11be-43b0-843f-a2e6ef9f0612/" />
+                                     <h3 class="decoration_title">Chemistry</h3>
+                                      <a href="https://www.youtube.com/playlist?list=PLbu_fGT0MPssj3hcRSLZS3V5Y8GrRUNZD" class= "fas fa-arrow-right fa-3x"> view </a>
+                                    </div>
+                                    <div class="decoration_data">
+                                      <img
+                                        src="https://thumbs-prod.si-cdn.com/s-jZTk0XtVmp-89MlOgFXqaAVe4=/fit-in/1600x0/https://public-media.si-cdn.com/filer/29/0f/290fb8c0-1872-46e5-8c12-235742905def/science_smithsonian_magazine_booklist_2019.png"
+                                        
+                                      />
+                                      <h3 class="decoration_title">Physics </h3>
+                                      <a href="https://www.youtube.com/playlist?list=PLbu_fGT0MPssdFZwufRvGRvlrSVpnVAun" class= "fas fa-arrow-right fa-3x"> view </a >
+                                    </div>
+                                    <div class="decoration_data">
+                                      <img
+                                        src="https://thumbs-prod.si-cdn.com/s-jZTk0XtVmp-89MlOgFXqaAVe4=/fit-in/1600x0/https://public-media.si-cdn.com/filer/29/0f/290fb8c0-1872-46e5-8c12-235742905def/science_smithsonian_magazine_booklist_2019.png"
+                                     
+                                      />
+                                      <h3 class="decoration_title">Biology </h3>
+                                      <a href="https://youtube.com/playlist?list=PLVLoWQFkZbhU9wgMK7nJv0eZK4gcaI8FJ" class="fas fa-arrow-right fa-3x"> view</a>
+                                    </div>
+          <!--<div class="decoration_data">
+            <img src="img/devops.png" alt="frontend" class="decoration_img" />
+            <h3 class="decoration_title">Understanding DevOps</h3>
+            <a href="devops.html" class="button button-link"> Go to Roadmap</a>
+          </div>
+          <div class="decoration_data">
+            <img
+              src="img/graphic-design.png"
+              alt="frontend"
+              class="decoration_img"
+            />
+            <h3 class="decoration_title">UI/UX <br />Development</h3>
+            <a href="uiux.html" class="button button-link"> Go to Roadmap</a>
+          </div>
+          <div class="decoration_data">
+            <img
+              src="img/android (2).png"
+              alt="frontend"
+              class="decoration_img"
+            />
+            <h3 class="decoration_title">Android Development</h3>
+            <a href="android.html" class="button button-link"> Go to Roadmap</a>
+          </div>
+          <div class="decoration_data">
+            <img
+              src="img/open-source.png"
+              alt="frontend"
+              class="decoration_img"
+            />
+            <h3 class="decoration_title">Open Source Development</h3>
+            <a href="git.html" class="button button-link"> Go to Roadmap</a>-->
+          </div>
+        </div>
+      </section>
+
+      <section class="send section" id="send">
+        <div class="send_container bd-container bd-grid">
+          <div class="send_content">
+            <h2 class="section-title-center send_title">
+              Get In Touch
+            </h2>
+            <p class="send_description">
+            Ask us If you have any querries ?<br />
+              Feel free to send us your doubts and querries 
+            </p>
+            <form action="">
+              <div class="send_direction">
+                <input placeholder="Send Message" class="send_input" />
+                <a href="vijay.saikiran@gmail.com" class="fas fa-arrow-right fa-3x">Send</a>
+              </div>
+            </form>
+          </div>
+          <div class="send_img">
+            <img src="https://cdn.leverageedu.com/blog/wp-content/uploads/2019/12/23193549/Mechanical-Engineering.png" alt="#" />
+          </div>
+        </div>
+      </section>
+    </main>
+    
+
+    <footer class="footer section" id="contact">
+      <div class="footer_container bd-container bd-grid">
+        <div class="footer_content">
+          <h3 class="footer_title">
+            <a href="main.html" class="footer_logo">Abhyas</a>
+          </h3>
+          <p class="footer_description">
+            Perfect place to find your <br />
+            pathway.
+          </p>
+        </div>
+
+        <div class="footer_content">
+          <h3 class="footer_title">Our Website</h3>
+          <ul>
+            <li><a href="https://dev.to/" class="footer_link">Blogs</a></li>
+            <li><a href="https://github.com/ZaidKhan2002/DEV.MAPS" class="footer_link">Github</a></li>
+            <li><a href="#contribute" class="footer_link">Our Mission</a></li>
+          </ul>
+        </div>
+
+        <div class="footer_content">
+          <h3 class="footer_title">Our Services</h3>
+          <ul>
+            <li><a href="#explore" class="footer_link">Video Courses</a></li>
+            <li><a href="#send" class="footer_link">Resources</a></li>
+            <li><a href="frontend.html" class="footer_link">Roadmaps</a></li>
+          </ul>
+        </div>
+
+        <div class="footer_content">
+          <h3 class="footer_title">Social</h3>
+          <a href="https://www.facebook.com/" class="footer_social"
+            ><i class="bx bxl-facebook-circle"></i
+          ></a>
+          <a href="https://github.com/ZaidKhan2002/DEV.MAPS" class="footer_social"><i class="bx bxl-github"></i></a>
+          <a href="https://www.linkedin.com/" class="footer_social"><i class="bx bxl-linkedin"></i></a>
+        </div>
+      </div>
+
+      <p class="footer_copy">&#169; 2022 ABHYAS All right reserved</p>
+    </footer>
+
+    <script src="index.js"></script>
+  </body>
+</html>
