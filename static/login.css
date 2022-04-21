@@ -9,7 +9,7 @@
 h1 { font-family: 'Rokkitt', serif; }
 
 body {
-  background: url('/.vscode/loginbg3.png') no-repeat center center fixed;
+  background: url("/static/loginbg.jpg") no-repeat center center fixed;
   background-size: cover;
   margin: 0 auto;
   width: 66%;
@@ -92,9 +92,9 @@ input[type=submit]:hover {
   color: #f4f4f4;
 }
 
-.message {
+/* .message {
   
-}
+} */
 .message span {
   display: block;
   color: rgba(255, 255, 255, 1);
