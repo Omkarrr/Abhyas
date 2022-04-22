@@ -17,4 +17,5 @@ urlpatterns = [
     path('sem1it',views.sem1it, name="sem1it"),
     path('sem2it',views.sem2it, name="sem2it"),
     path('sem3it',views.sem3it, name="sem3it"),
+    path('signup',views.signup, name="signup"),
 ]

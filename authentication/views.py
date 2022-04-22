@@ -65,3 +65,6 @@ def sem2it(request):
 
 def sem3it(request):
     return render(request, "authentication/sem3it.html")
+
+def signup(request):
+    return render(request, "authentication/signup.html")

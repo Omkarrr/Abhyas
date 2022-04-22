@@ -4,28 +4,40 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
     {% load static %}
-    <link rel="stylesheet" href="{% static '/login.css' %}">
-    <link rel="JSstyle" href="{% static '/login.js' %}">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static '/signin.css' %}">
 </head>
 <body>
-    <section class="container">
-        <div class="span-6">
-          <div class="login">
-            <h1>Welcome!</h1>
-            <div class="login-content">
-              <label id="emailLabel">Please enter a valid email</label>
-              <input id="email"  placeholder="Email">
-              <label id="passwordLabel">Please enter your password</label>
-              <input type="password" id="password" placeholder="Password"><br>
-                <a href="#">Forgot Username </a>&#x2022<a href="#"> Forgot Password</a><br>
-              
-              <input type="submit" value="Login">
-              <a href="/signup"><input type="button" value="SignUp"></a>
-              
-            </div>
-          </div>
-        </div>
+    <section>  
+        <div class="colour"></div>  
+        <div class="colour"></div>  
+        <div class="colour"></div>  
+        <div class="box">  
+             <div class="square" style="--i:0;"></div>  
+             <div class="square" style="--i:1;"></div>  
+             <div class="square" style="--i:2;"></div>  
+             <div class="square" style="--i:3;"></div>  
+             <div class="square" style="--i:4;"></div>  
+             <div class="container">  
+                  <div class="form">  
+                       <h2>Login Here</h2>  
+                       <form>  
+                            <div class="input__box">  
+                                 <input type="text" placeholder="Username">  
+                            </div>  
+                            <div class="input__box">  
+                                 <input type="password" placeholder="Password">  
+                            </div>  
+                            <div class="input__box">  
+                                 <input type="submit" value="Login">  
+                            </div>  
+                            <p class="forget">Forgot Password? <a href="#">Click Here</a></p>  
+                            <p class="forget">Don't have an account? <a href="/signup">Sign Up</a></p>  
+                       </form>  
+                  </div>  
+             </div>  
+        </div>  
+   </section>  
 </body>
 </html>
