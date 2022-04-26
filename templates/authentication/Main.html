@@ -32,11 +32,20 @@
             <a href="#contribute" class="nav_link">Contribute</a>
           </li>
           <li class="nav_item">
-            <a href="/signin" class="nav_link">Login</a>
-          </li>
-          <li class="nav_item">
             <a href="/aboutus" class="nav_link">About us</a>
           </li>
+          
+          {% if request.user.is_authenticated %}
+          <li class="nav_item">
+            <a href="/signout" class="nav_link">Hello {{ fname }}, Sign Out</a>
+            <!-- <button type="submit"><a href="/signout">Sign Out</a></button> -->
+          </li>
+          {% else %}
+          <li class="nav_item">
+            <a href="/signin" class="nav_link">Login</a>
+          </li>
+          {% endif %}
+
 
         </ul>
       </div>
@@ -46,6 +55,18 @@
       </div>
     </nav>
   </header>
+  <section>
+    
+    {% for message in message %}
+    <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role = "alert">
+      <strong>Message:</strong>{{ message }}
+      <button type="button" class="close" data-dismiss="alert" aria-label=""Close>
+      <span aria-hidden=""true>&times;</span>
+      </button>
+    </div>
+    {% endfor %}
+      
+  </section>
   <main class="l-main">
     <section class="home" id="home">
       <div class="home_container bd-container bd-grid">

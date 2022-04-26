@@ -22,12 +22,13 @@
              <div class="container">  
                   <div class="form">  
                        <h2>Login Here</h2>  
-                       <form>  
+                       <form action="/" method="post">  
+                         {% csrf_token %}
                             <div class="input__box">  
-                                 <input type="text" placeholder="Username">  
+                                 <input type="text" name="username" placeholder="Username">  
                             </div>  
                             <div class="input__box">  
-                                 <input type="password" placeholder="Password">  
+                                 <input type="password" name="pass1" placeholder="Password">  
                             </div>  
                             <div class="input__box">  
                                  <input type="submit" value="Login">  

@@ -19,13 +19,14 @@
 		<h1>SignUp Here</h1>
 		<div class="main-agileinfo">
 			<div class="agileits-top">
-				<form action="#" method="post">
+				<form action="/signup" method="post">
+				{% csrf_token %}
 					<input class="text" type="text" name="Username" placeholder="Username" required="">
-					<input class="text" type="text" name="Username" placeholder="First Name" required="">
-					<input class="text" type="text" name="Username" placeholder="Last Name" required="">
+					<input class="text" type="text" name="fname" placeholder="First Name" required="">
+					<input class="text" type="text" name="lname" placeholder="Last Name" required="">
 					<input class="text email" type="email" name="email" placeholder="Email" required="">
-					<input class="text" type="password" name="password" placeholder="Password" required="">
-					<input class="text w3lpass" type="password" name="password" placeholder="Create your Password" required="">
+					<input class="text" type="password" name="pass1" placeholder="Password" required="">
+					<input class="text w3lpass" type="password" name="pass2" placeholder="Create your Password" required="">
 					<div class="wthree-text">
 						<label class="anim">
 							<input type="checkbox" class="checkbox" required="">
@@ -35,7 +36,7 @@
 					</div>
 					<input type="submit" value="SIGNUP">
 				</form>
-				<p>Do you have an Account? <a href="signin.html"> Login Now!</a></p>
+				<p>Do you have an Account? <a href="/signin"> Login Now!</a></p>
 			</div>
 		</div>
 		<!-- copyright -->
