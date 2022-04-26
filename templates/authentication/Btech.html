@@ -33,12 +33,21 @@
             <li class="nav_item">
               <a href="#contribute" class="nav_link">Contribute</a>
             </li>
-            <li class="nav_item">
-              <a href="/signin" class="nav_link">Login</a>
-            </li>
+           
             <li class="nav_item">
               <a href="/aboutus" class="nav_link">About us</a>
             </li>
+
+            {% if request.user.is_authenticated %}
+          <li class="nav_item">
+            <a href="/signout" class="nav_link">Hello {{ fname }}, Sign Out</a>
+            <!-- <button type="submit"><a href="/signout">Sign Out</a></button> -->
+          </li>
+          {% else %}
+          <li class="nav_item">
+            <a href="/signin" class="nav_link">Login</a>
+          </li>
+          {% endif %}
 
           </ul>
         </div>
