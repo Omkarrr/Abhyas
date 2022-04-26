@@ -5,8 +5,8 @@ from django.http import HttpResponse
 from django.contrib.auth.models import User
 from django.contrib import messages
 
-from django.contrib.auth import login, logout
-import authentication
+from django.contrib.auth import login, logout, authenticate
+
 
 
 # Create your views here.
@@ -46,7 +46,7 @@ def signup(request):
 
     if request.method == "POST":
         # username = request.POST.get('username')
-        username = request.POST['Username']
+        username = request.POST['username']
         fname = request.POST['fname']
         lname = request.POST['lname']
         email = request.POST['email']
@@ -71,12 +71,12 @@ def signin(request):
         username = request.POST['username']
         pass1 = request.POST['pass1']
 
-        user = authentication(username=username, password=pass1)
+        user = authenticate(username=username, password=pass1)
 
         if user is not None:
             login(request, user)
             fname = user.first_name
-            return render(request, "authentication/signin.html", {'fname':fname})
+            return render(request, "authentication/Main.html", {'fname':fname})
 
         else:
             messages.error(request, "Bad Credentials")
