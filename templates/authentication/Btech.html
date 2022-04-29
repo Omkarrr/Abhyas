@@ -79,17 +79,25 @@
           <div class="decoration_data">
             <img src="https://images.idgesg.net/images/article/2018/10/artificial-intelligence_brain_machine-learning_digital-transformation_world-networking-100777429-large.jpg" />
            <h3 class="decoration_title">Computer Science</h3>
-            <a href="https://youtube.com/playlist?list=PLVONEN7ojmy8Qmffq2-Gfa07QrKDjP8zr" class= "fas fa-arrow-right fa-3x"> view </a>
+           {% if request.user.is_authenticated %}
+           <a href="https://youtube.com/playlist?list=PLVONEN7ojmy8Qmffq2-Gfa07QrKDjP8zr" class= "fas fa-arrow-right fa-3x"> view </a>
+           {% else %}
+           <a href="/signin" class="fas fa-arrow-right fa-3x"> View  </a>
+           {% endif %}
           </div>
           <div class="decoration_data">
             <img
-              src="https://ceramics.org/wp-content/uploads/2017/07/circuit-board-low-res.jpg"
+            src="https://ceramics.org/wp-content/uploads/2017/07/circuit-board-low-res.jpg"
             />
             <h3 class="decoration_title">Electronics and Computer Engineering</h3>
+            {% if request.user.is_authenticated %}
             <a href="https://youtube.com/playlist?list=PLVLoWQFkZbhXAipqg8dmzLQOED1uxgUTx" class= "fas fa-arrow-right fa-3x"> view </a >
-          </div>
-          <!--<div class="decoration_data">
-            <img src="img/devops.png" alt="frontend" class="decoration_img" />
+              {% else %}
+              <a href="/signin" class="fas fa-arrow-right fa-3x"> View  </a>
+              {% endif %}
+            </div>
+            <!--<div class="decoration_data">
+              <img src="img/devops.png" alt="frontend" class="decoration_img" />
             <h3 class="decoration_title">Understanding DevOps</h3>
             <a href="devops.html" class="button button-link"> Go to Roadmap</a>
           </div>

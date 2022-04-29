@@ -73,51 +73,34 @@
               src="https://images.hindustantimes.com/rf/image_size_444x250/HT/p2/2020/04/15/Pictures/_a6aa061c-7f1c-11ea-aedf-4d2519fcedc3.jpg"
             />
             <h3 class="decoration_title">Mathemtics</h3>
+            {% if request.user.is_authenticated %}
             <a href="https://youtube.com/playlist?list=PLVLoWQFkZbhUOneTVM7EqHEeYLW8MfGuH" class="fas fa-arrow-right fa-3x"> View  </a>
+            {% else %}
+            <a href="/signin" class="fas fa-arrow-right fa-3x"> View  </a>
+            {% endif %}
           </div>
           <div class="decoration_data">
             <img src="https://jobs.newscientist.com/getasset/c40a5488-11be-43b0-843f-a2e6ef9f0612/" />
-           <h3 class="decoration_title">Chemistry</h3>
+            <h3 class="decoration_title">Chemistry</h3>
+            {% if request.user.is_authenticated %}
             <a href="https://youtube.com/playlist?list=PLVONEN7ojmy8Qmffq2-Gfa07QrKDjP8zr" class= "fas fa-arrow-right fa-3x"> view </a>
+            
+            {% else %}
+            <a href="/signin" class="fas fa-arrow-right fa-3x"> View  </a>
+            {% endif %}
           </div>
           <div class="decoration_data">
             <img
               src="https://s3-ap-south-1.amazonaws.com/blogmindler/bloglive/wp-content/uploads/2018/12/12163355/Pure-Science-Courses-After-Class-12th.png"
             />
             <h3 class="decoration_title">Physics </h3>
+            {% if request.user.is_authenticated %}
             <a href="https://youtube.com/playlist?list=PLVLoWQFkZbhXAipqg8dmzLQOED1uxgUTx" class= "fas fa-arrow-right fa-3x"> view </a >
+            {% else %}
+            <a href="/signin" class="fas fa-arrow-right fa-3x"> View  </a>
+            {% endif %}
           </div>
-          <!--<div class="decoration_data">
-            <img src="img/devops.png" alt="frontend" class="decoration_img" />
-            <h3 class="decoration_title">Understanding DevOps</h3>
-            <a href="devops.html" class="button button-link"> Go to Roadmap</a>
-          </div>
-          <div class="decoration_data">
-            <img
-              src="img/graphic-design.png"
-              alt="frontend"
-              class="decoration_img"
-            />
-            <h3 class="decoration_title">UI/UX <br />Development</h3>
-            <a href="uiux.html" class="button button-link"> Go to Roadmap</a>
-          </div>
-          <div class="decoration_data">
-            <img
-              src="img/android (2).png"
-              alt="frontend"
-              class="decoration_img"
-            />
-            <h3 class="decoration_title">Android Development</h3>
-            <a href="android.html" class="button button-link"> Go to Roadmap</a>
-          </div>
-          <div class="decoration_data">
-            <img
-              src="img/open-source.png"
-              alt="frontend"
-              class="decoration_img"
-            />
-            <h3 class="decoration_title">Open Source Development</h3>
-            <a href="git.html" class="button button-link"> Go to Roadmap</a>-->
+          
           </div>
         </div>
       </section>

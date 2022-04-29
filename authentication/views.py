@@ -1,11 +1,14 @@
-from ast import Return
-import imp
+
+from django.conf import settings
 from django.shortcuts import redirect, render
 from django.http import HttpResponse
 from django.contrib.auth.models import User
 from django.contrib import messages
 
 from django.contrib.auth import login, logout, authenticate
+
+from Abhyas import settings
+from django.core.mail import send_mail
 
 
 
@@ -53,6 +56,24 @@ def signup(request):
         pass1 = request.POST['pass1']
         pass2 = request.POST['pass2']
         
+        # if User.objects.filter(username=username):
+        #     messages.error(request, "Username already exist! Please try some other username")
+        #     return redirect('signin')
+        
+        # if User.objects.filter(email=email):
+        #     messages.error(request, "Email already exist! Please try some other username")
+        #     return redirect('signin')
+        
+        # if len(username)>10:
+        #     messages.error(request, "Username must be under 10 characters")
+        
+        # if pass1 != pass2:
+        #     messages.error(request, "Password didn't match!")
+        
+        # if not username.isalnum():
+        #     messages.error(request, "Username must be Alpha-Numeric!")
+        #     return redirect("signin")
+
         myuser = User.objects.create_user(username, email, pass1)
         myuser.first_name = fname
         myuser.last_name = lname
@@ -60,6 +81,14 @@ def signup(request):
         myuser.save()
 
         messages.success(request, "Your Account has been Successfuly Created")
+        
+        # Welcome Email
+
+        subject = "Welcome to Abhayas, the E-learning Platform"
+        message = "Hello " +myuser.first_name + "!!\n" + "Thank you for Visitng Our website"
+        from_email = settings.EMAIL_HOST_USER
+        to_list = [myuser.email]
+        send_mail(subject, message, from_email, to_list, fail_silently=True)
 
         return redirect('/signin')
 

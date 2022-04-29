@@ -69,28 +69,44 @@
                                         src="https://images.hindustantimes.com/rf/image_size_444x250/HT/p2/2020/04/15/Pictures/_a6aa061c-7f1c-11ea-aedf-4d2519fcedc3.jpg"
                                       />
                                       <h3 class="decoration_title">Mathemtics</h3>
+                                      {% if request.user.is_authenticated %}
                                       <a href="https://youtube.com/playlist?list=PLKKfKV1b9e8qRtBEpJNyt8jy4OZ4sWYy_" class="fas fa-arrow-right fa-3x"> View  </a>
+                                      {% else %}
+                                      <a href="/signin" class="fas fa-arrow-right fa-3x"> View  </a>
+                                      {% endif %}
                                     </div>
                                     <div class="decoration_data">
                                       <img src="https://jobs.newscientist.com/getasset/c40a5488-11be-43b0-843f-a2e6ef9f0612/" />
-                                     <h3 class="decoration_title">Chemistry</h3>
+                                      <h3 class="decoration_title">Chemistry</h3>
+                                      {% if request.user.is_authenticated %}
                                       <a href="https://www.youtube.com/playlist?list=PLbu_fGT0MPssj3hcRSLZS3V5Y8GrRUNZD" class= "fas fa-arrow-right fa-3x"> view </a>
+                                      {% else %}
+                                      <a href="/signin" class="fas fa-arrow-right fa-3x"> View  </a>
+                                      {% endif %}
                                     </div>
                                     <div class="decoration_data">
                                       <img
-                                        src="https://thumbs-prod.si-cdn.com/s-jZTk0XtVmp-89MlOgFXqaAVe4=/fit-in/1600x0/https://public-media.si-cdn.com/filer/29/0f/290fb8c0-1872-46e5-8c12-235742905def/science_smithsonian_magazine_booklist_2019.png"
-                                        
+                                      src="https://thumbs-prod.si-cdn.com/s-jZTk0XtVmp-89MlOgFXqaAVe4=/fit-in/1600x0/https://public-media.si-cdn.com/filer/29/0f/290fb8c0-1872-46e5-8c12-235742905def/science_smithsonian_magazine_booklist_2019.png"
+                                      
                                       />
                                       <h3 class="decoration_title">Physics </h3>
+                                      {% if request.user.is_authenticated %}
                                       <a href="https://www.youtube.com/playlist?list=PLbu_fGT0MPssdFZwufRvGRvlrSVpnVAun" class= "fas fa-arrow-right fa-3x"> view </a >
-                                    </div>
-                                    <div class="decoration_data">
-                                      <img
+                                        {% else %}
+                                        <a href="/signin" class="fas fa-arrow-right fa-3x"> View  </a>
+                                        {% endif %}
+                                      </div>
+                                      <div class="decoration_data">
+                                        <img
                                         src="https://thumbs-prod.si-cdn.com/s-jZTk0XtVmp-89MlOgFXqaAVe4=/fit-in/1600x0/https://public-media.si-cdn.com/filer/29/0f/290fb8c0-1872-46e5-8c12-235742905def/science_smithsonian_magazine_booklist_2019.png"
-                                     
-                                      />
-                                      <h3 class="decoration_title">Biology </h3>
-                                      <a href="https://youtube.com/playlist?list=PLVLoWQFkZbhU9wgMK7nJv0eZK4gcaI8FJ" class="fas fa-arrow-right fa-3x"> view</a>
+                                        
+                                        />
+                                        <h3 class="decoration_title">Biology </h3>
+                                        {% if request.user.is_authenticated %}
+                                        <a href="https://youtube.com/playlist?list=PLVLoWQFkZbhU9wgMK7nJv0eZK4gcaI8FJ" class="fas fa-arrow-right fa-3x"> view</a>
+                                        {% else %}
+                                        <a href="/signin" class="fas fa-arrow-right fa-3x"> View  </a>
+                                        {% endif %}
                                     </div>
           <!--<div class="decoration_data">
             <img src="img/devops.png" alt="frontend" class="decoration_img" />
