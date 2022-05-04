@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    {% load static %}
+    <link rel="stylesheet" href="{% static '/sem3it.css' %}" />
+    <title>Abhyas</title>
+  
+  </head>
+  <body>
+    <a href="#" class="scrolltop" id="scroll-top">
+      <i class="bx bx-up-arrow-alt scrolltop_icon"></i>
+    </a>
+
+    <header class="l-header" id="header">
+      <nav class="nav bd-container">
+        <a href="/" class="nav_logo">Abhyas</a>
+
+        <div class="nav_menu" id="nav-menu">
+          <ul class="nav_list">
+            <li class="nav_item">
+              <a href="/" class="nav_link">Home</a>
+            </li>
+            <li class="nav_item">
+              <a href="#explore" class="nav_link">Courses</a>
+            </li>
+            <li class="nav_item">
+              <a href="#contribute" class="nav_link">Contribute</a>
+            </li>
+          
+            <li class="nav_item">
+              <a href="/aboutus" class="nav_link">About us</a>
+            </li>
+
+            {% if request.user.is_authenticated %}
+          <li class="nav_item">
+            <a href="/signout" class="nav_link">Hello {{ fname }}, Sign Out</a>
+            <!-- <button type="submit"><a href="/signout">Sign Out</a></button> -->
+          </li>
+          {% else %}
+          <li class="nav_item">
+            <a href="/signin" class="nav_link">Login</a>
+          </li>
+          {% endif %}
+
+          </ul>
+        </div>
+
+        <div class="nav_toggle" id="nav-toggle">
+          <i class="bx bx-grid-alt"></i>
+        </div>
+      </nav>
+    </header>
+  
+  
+        <section class="decoration section bd-container" id="explore">
+          <h2 class="section-title"></h2>
+        
+
+          
+          <div class="container">
+            <h1>Sem 3 Subjects</h1>
+            <p>Comming Soon</p>
+            <p>We are wrking on it</p>
+          </div>
+
+          
+
+            </div>
+          </div>
+        </section>
+  
+             
+      <footer class="footer section" id="contact">
+        <div class="footer_container bd-container bd-grid">
+          <div class="footer_content">
+            <h3 class="footer_title">
+              <a href="#" class="footer_logo">Abhyas</a>
+            </h3>
+            <p class="footer_description">
+              Perfect place to find your <br />
+              pathway.
+            </p>
+          </div>
+
+        <div class="footer_content">
+          <h3 class="footer_title">Our Website</h3>
+          <ul>
+            <li><a href="https://dev.to/" class="footer_link">Blogs</a></li>
+            <li><a href="https://github.com/ZaidKhan2002/DEV.MAPS" class="footer_link">Github</a></li>
+            <li><a href="#contribute" class="footer_link">Our Mission</a></li>
+          </ul>
+        </div>
+
+        <div class="footer_content">
+          <h3 class="footer_title">Our Services</h3>
+          <ul>
+            <li><a href="#explore" class="footer_link">Video Courses</a></li>
+            <li><a href="#send" class="footer_link">Newsletter</a></li>
+            <li><a href="frontend.html" class="footer_link">Roadmaps</a></li>
+          </ul>
+        </div>
+
+        <div class="footer_content">
+          <h3 class="footer_title">Social</h3>
+          <a href="https://www.facebook.com/" class="footer_social"
+            ><i class="bx bxl-facebook-circle"></i
+          ></a>
+          <a href="https://github.com/ZaidKhan2002/DEV.MAPS" class="footer_social"><i class="bx bxl-github"></i></a>
+          <a href="https://www.linkedin.com/" class="footer_social"><i class="bx bxl-linkedin"></i></a>
+        </div>
+      </div>
+
+      <p class="footer_copy">&#169; 2022 Abhyas All right reserved</p>
+    </footer>
+
+    <script src="{% static '/index.js' %}"></script>
+  </body>
+</html>

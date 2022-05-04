@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css" rel="stylesheet" />
+  <title>Abhyas</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static '/styles.css' %}" />
+</head>
+
+<body>
+  <a href="#" class="scrolltop" id="scroll-top">
+    <i class="bx bx-up-arrow-alt scrolltop_icon"></i>
+  </a>
+
+  <header class="l-header" id="header">
+    <nav class="nav bd-container">
+      <a href="/" class="nav_logo">Abhyas</a>
+
+      <div class="nav_menu" id="nav-menu">
+        <ul class="nav_list">
+          <li class="nav_item">
+            <a href="/" class="nav_link">Home</a>
+          </li>
+          <li class="nav_item">
+            <a href="#explore" class="nav_link">Courses</a>
+          </li>
+          <li class="nav_item">
+            <a href="#contribute" class="nav_link">Contribute</a>
+          </li>
+          <li class="nav_item">
+            <a href="/aboutus" class="nav_link">About us</a>
+          </li>
+          
+          {% if request.user.is_authenticated %}
+          <li class="nav_item">
+            <a href="/signout" class="nav_link">Hello {{ fname }}, Sign Out</a>
+            <!-- <button type="submit"><a href="/signout">Sign Out</a></button> -->
+          </li>
+          {% else %}
+          <li class="nav_item">
+            <a href="/signin" class="nav_link">Login</a>
+          </li>
+          {% endif %}
+
+
+        </ul>
+      </div>
+
+      <div class="nav_toggle" id="nav-toggle">
+        <i class="bx bx-grid-alt"></i>
+      </div>
+    </nav>
+  </header>
+  
+  <main class="l-main">
+    <section class="home" id="home">
+      <div class="home_container bd-container bd-grid">
+        <div class="home_img">
+          <img src="https://ied.eu/wp-content/uploads/2020/06/digital-transformation-webinars.jpg" alt="map" />
+        </div>
+        <div class="home_data">
+          <h1 class="home_title">
+            LET US MAKE LEARNING EASY
+          </h1>
+          <p class="home_description">
+            Find A Compilation Of Resources To
+            Get Started
+          </p>
+          <a href="#explore" class="button">Explore More</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="decoration section bd-container" id="explore">
+      <h2 class="section-title"> OUR COURSE CATEGARIES</h2>
+
+      <div class="decoration_container bd-grid">
+        <div class="decoration_data">
+          <img
+            src=https://static.scientificamerican.com/blogs/cache/file/FE946D19-DD8A-4F50-968B5E142460AFCE_source.jpg?w=590&h=800&F34CBDA2-EC01-40A3-93FC20A458CC0C05
+            alt="frontend" class="decoration_img" />
+          <h3 class="decoration_title">Class 10th</h3>
+          <a href="/std10" class="fas fa-arrow-right fa-3x"> &#8594 </a>
+        </div>
+        <div class="decoration_data">
+          <img
+            src="https://media.gettyimages.com/photos/abstract-curly-tendrils-background-picture-id888421376?s=2048x2048"
+            class="decoration_img" />
+          <h3 class="decoration_title">class 11th</h3>
+          <a href="/std11" class="fas fa-arrow-right fa-3x"> &#8594 </a>
+        </div>
+        <div class="decoration_data">
+          <img src="https://media.gettyimages.com/photos/blackboard-full-of-equations-picture-id154932300?s=2048x2048"
+            alt="frontend" class="decoration_img" />
+          <h3 class="decoration_title">class 12th<br /> </h3>
+          <a href="/std12" class="fas fa-arrow-right fa-3x"> &#8594 </a>
+        </div>
+        <div class="decoration_data">
+          <img src="https://media.gettyimages.com/photos/scientific-ideas-picture-id1165359452?s=2048x2048"
+            alt="frontend" class="decoration_img" />
+          <h3 class="decoration_title">Btech <br /> </h3>
+          <a href="/Btech" class="fas fa-arrow-right fa-3x"> &#8594 </a>
+        </div>
+
+      </div>
+      </div>
+    </section>
+
+    <section class="share section bd-container" id="contribute">
+      <div class="share_container bd-grid">
+        <div class="share_data">
+          <h2 class="section-title-center">
+            We are an online platform where students can learn for free<br />
+            We have gone through various online study
+            material and have combined the best of them for you
+
+          </h2>
+          <!--<p class="share_description"> 
+            
+            </p>-->
+          <a href="https://github.com/Omkarrr" class="button">Star us on Github</a>
+        </div>
+
+        <div class="share_img">
+          <img src="https://www.copyright.com/wp-content/uploads/2021/03/steviehome.png" alt="maps" />
+        </div>
+      </div>
+    </section>
+
+    <section class="send section" id="send">
+      <div class="send_container bd-container bd-grid">
+        <div class="send_content">
+          <h2 class="section-title-center send_title">
+            Have A Resource To Share?
+          </h2>
+          <p class="send_description">
+            Want to contribute towards community and add more roadmaps for new
+            developers?<br />
+            Feel free to send us a link and we'll look forward to incorporate
+            it.
+          </p>
+          <form action="">
+            <div class="send_direction">
+              <input placeholder="Send Resource" class="send_input" />
+              <a href="mailto:vijay.saikiran@gmail.com" class="button">Send</a>
+            </div>
+          </form>
+        </div>
+        <div class="send_img">
+          <img src="{% static 'sharing.jpg' %}" alt="#" />
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer section" id="contact">
+    <div class="footer_container bd-container bd-grid">
+      <div class="footer_content">
+        <h3 class="footer_title">
+          <a href="#" class="footer_logo">Abhyas</a>
+        </h3>
+        <p class="footer_description">
+          Perfect place to find your <br />
+          pathway.
+        </p>
+      </div>
+
+      <div class="footer_content">
+        <h3 class="footer_title">Our Website</h3>
+        <ul>
+          <li><a href="https://dev.to/" class="footer_link">Blogs</a></li>
+          <li><a href="https://github.com/ZaidKhan2002/DEV.MAPS" class="footer_link">Github</a></li>
+          <li><a href="#contribute" class="footer_link">Our Mission</a></li>
+        </ul>
+      </div>
+
+      <div class="footer_content">
+        <h3 class="footer_title">Our Services</h3>
+        <ul>
+          <li><a href="#explore" class="footer_link">Video Courses</a></li>
+          <li><a href="#send" class="footer_link">Resources</a></li>
+          <li><a href="frontend.html" class="footer_link">Roadmaps</a></li>
+        </ul>
+      </div>
+
+      <div class="footer_content">
+        <h3 class="footer_title">Social</h3>
+        <a href="https://www.facebook.com/" class="footer_social"><i class="bx bxl-facebook-circle"></i></a>
+        <a href="https://github.com/ZaidKhan2002/DEV.MAPS" class="footer_social"><i class="bx bxl-github"></i></a>
+        <a href="https://www.linkedin.com/" class="footer_social"><i class="bx bxl-linkedin"></i></a>
+      </div>
+    </div>
+
+    <p class="footer_copy">&#169; 2022 ABHYAS All right reserved</p>
+  </footer>
+
+  <script src="{% static '/index.js' %}"></script>
+</body>
+
+</html>
